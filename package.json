@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "pkg src/index.js --out-path=dist"
+    "build": "pkg src/index.js --out-path=dist",
+    "test": "jest"
   },
   "dependencies": {
     "internal-ip": "^5.0.0"
   },
   "devDependencies": {
+    "jest": "^24.9.0",
     "pkg": "^4.4.0"
   }
 }

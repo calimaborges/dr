@@ -1,9 +1,8 @@
 const { exec } = require("child_process");
 const internalIp = require("internal-ip");
+const generateDockerCommandFromArgsAndConfigFile = require("./generateDockerCommandFromArgsAndConfigFile");
 
-async function runDockerWithProperties([command, imageName, ...args]) {
-  const dockerContextFolder = ".";
-
+async function runDockerWithProperties([command, ...args]) {
   const internalIpV4 = await internalIp.v4();
   const dockerProxy = `http://${internalIpV4}:3128`;
 
@@ -12,9 +11,7 @@ async function runDockerWithProperties([command, imageName, ...args]) {
   }
 
   const { stdout, stderr } = await exec(
-    `docker ${command} -t ${imageName} --build-arg http_proxy=${dockerProxy} --build-arg https_proxy=${dockerProxy} ${dockerContextFolder} ${args.join(
-      " "
-    )}`
+    generateDockerCommandFromArgsAndConfigFile(command, args, { dockerProxy })
   );
 
   stdout.pipe(process.stdout);
