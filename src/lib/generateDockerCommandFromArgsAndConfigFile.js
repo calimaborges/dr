@@ -4,13 +4,18 @@ function generateDockerCommandFromArgsAndConfigFile(
   config = {}
 ) {
   const configuredArgs = args;
-  if (config.dockerProxy) {
+
+  if (command !== "build") {
+    throw new Error(`${command} not implemented!`);
+  }
+
+  if (config.proxy) {
     configuredArgs.push(
-      `--build-arg http_proxy=${config.dockerProxy} --build-arg https_proxy=${config.dockerProxy}`
+      `--build-arg http_proxy=${config.proxy} --build-arg https_proxy=${config.proxy}`
     );
   }
+
   const dockerCommand = `docker ${command} ${args.join(" ")}`.trim();
-  console.log(dockerCommand);
   return dockerCommand;
 }
 
