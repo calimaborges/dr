@@ -7,7 +7,7 @@ Docker Runner - Docker made easier for development environments
 ## Overview
 
 The initial goal is to make it easier to use Docker as a development
-environment. The plan is to allow configurable parameters through a `.drrc`
+environment. The plan is to allow configurable parameters through a `.drrc.json`
 file.
 
 ## Commands
@@ -16,12 +16,12 @@ file.
 
 ## Configured args
 
-The configured args are parsed from `.drrc` file. The `.drrc` file uses the following priority list:
+The configured args are parsed from `.drrc.json` file. The `.drrc.json` file uses the following priority list:
 
-1. `./.drrc`
-2. `~/.drrc`
-3. `~/config/.drrc`
-4. `/etc/.drrc`
+1. `./.drrc.json`
+2. `~/.drrc.json`
+3. `~/config/.drrc.json`
+4. `/etc/.drrc.json`
 
 Those files accept EJS template and the following variables are injected:
 
@@ -30,5 +30,7 @@ Those files accept EJS template and the following variables are injected:
 
 ## Development TODO
 
-- [ ] Use EJS to parse configuration files
+- [x] Use EJS to parse configuration files
+- [x] Read `.drrc.json` files
+- [ ] `.drrc.json` files should be merged, not replaced
 - [ ] Should use `yargs`?
