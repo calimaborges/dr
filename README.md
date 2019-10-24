@@ -22,3 +22,13 @@ The configured args are parsed from `.drrc` file. The `.drrc` file uses the foll
 2. `~/.drrc`
 3. `~/config/.drrc`
 4. `/etc/.drrc`
+
+Those files accept EJS template and the following variables are injected:
+
+- `internalIpV4`
+- `internalIpV6`
+
+## Development TODO
+
+- [ ] Use EJS to parse configuration files
+- [ ] Should use `yargs`?
