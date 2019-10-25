@@ -37,5 +37,5 @@ Those files accept EJS template and the following variables are injected:
   git clone https://www.github.com/calimaborges/dotfiles ~/dotfiles
   ~/dotfiles/setup
   ```
-- [ ] Are you replacing bash? Maybe extending it?
+- [ ] Are you replacing bash? Maybe extending it.
 - [ ] Allow prompt if some variable inside `.drrc` template is not found
