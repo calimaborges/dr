@@ -10,13 +10,10 @@ The initial goal is to make it easier to use Docker as a development
 environment. The plan is to allow configurable parameters through a `.drrc.json`
 file.
 
-## Commands
-
-- `dr build <image_name>` = `docker build <configured_args> -t <image_name> .`
-
 ## Configured args
 
-The configured args are parsed from `.drrc.json` file. The `.drrc.json` file uses the following priority list:
+The configured args are parsed from `.drrc.json` file. The `.drrc.json` file
+uses the following priority list:
 
 1. `./.drrc.json`
 2. `~/.drrc.json`
@@ -33,4 +30,3 @@ Those files accept EJS template and the following variables are injected:
 - [x] Use EJS to parse configuration files
 - [x] Read `.drrc.json` files
 - [ ] `.drrc.json` files should be merged, not replaced
-- [ ] Should use `yargs`?
