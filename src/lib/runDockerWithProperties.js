@@ -5,7 +5,7 @@ const generateDockerCommandFromArgsAndConfigFile = require("./generateDockerComm
 const parseConfigFileWithTemplate = require("./parseConfigFileWithTemplate");
 const readFirstEncounteredFileOrNull = require("./readFirstEncounteredFileOrNull");
 
-async function runDockerWithProperties([command, ...args]) {
+async function runDockerWithProperties(args) {
   const configBuffer = await readFirstEncounteredFileOrNull([
     ".drrc.json",
     path.join(os.homedir(), ".drrc.json"),
@@ -16,7 +16,6 @@ async function runDockerWithProperties([command, ...args]) {
 
   const parsedConfig = await parseConfigFileWithTemplate(config || "");
   const dockerCommand = generateDockerCommandFromArgsAndConfigFile(
-    command,
     args,
     parsedConfig
   );
