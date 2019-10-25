@@ -31,3 +31,10 @@ Those files accept EJS template and the following variables are injected:
 - [x] Read `.drrc.json` files
 - [ ] `.drrc.json` files should be merged, not replaced
 - [ ] How about intercepting ANY (not just docker's) cli command and concatenate it with params?
+- [ ] Multiple commands alias? Something like `dr setup`, execute the following:
+  ```
+  git clone https://www.github.com/calimaborges/dotfiles ~/dotfiles
+  ~/dotfiles/setup
+  ```
+- [ ] Are you replacing bash? Maybe extending it?
+- [ ] Allow prompt if some variable inside `.drrc` template is not found
